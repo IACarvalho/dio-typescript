@@ -1,16 +1,13 @@
 interface IUser {
   id: string;
   email: string;
+  position?: 'normal user' | 'manager' | 'coordinator' |'supervisor' 
 }
 
-interface IAdmin extends IUser {
-  position: 'manager' | 'coordinator' |'supervisor' 
-}
+function login (user: IUser ) {
+  if (user.position) [
+    // redirect to employees area (user.position)
+  ]
 
-function login (user: IUser | IAdmin) {
-  if ('position' in user) {
-    // redirect to administrator area
-  }
-
-  // redirect to user area 
+  // redirect to guest area
 }
