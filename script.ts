@@ -1,22 +1,11 @@
-interface IAnimal {
-  name: string;
-  type: 'land' | 'aquatic';
-  toGrowl(soundVolume: number): void;
-}
+const input = document.querySelector('#input') as HTMLInputElement
 
-interface IFeline extends IAnimal {
-  nightVision: boolean;
-}
+const body = document.querySelector('body') as HTMLElement
+const text = document.createElement('p') as HTMLParagraphElement
+body.appendChild(text)
 
-const animal: IAnimal = {
-  name: 'Elefante',
-  type: 'land',
-  toGrowl: (soundVolume) => { console.log(`O elefante barriu à ${soundVolume}Db`) }
-}
+input.addEventListener('input', (event) => {
+  const input = event.currentTarget as HTMLInputElement
 
-const felino: IFeline = {
-  name: 'Leão',
-  type: 'land',
-  toGrowl: (soundVolume) => {console.log(`O leão rugiu à ${soundVolume}Db`)},
-  nightVision: true
-}
+  text.innerText = input.value
+})
