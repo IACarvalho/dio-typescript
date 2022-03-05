@@ -1,11 +1,7 @@
-const input = document.querySelector('#input') as HTMLInputElement
+// generic types
 
-const body = document.querySelector('body') as HTMLElement
-const text = document.createElement('p') as HTMLParagraphElement
-body.appendChild(text)
+function appendItem<T>(array: any[], value: T): any[] {
+  return array.map(() => value)
+}
 
-input.addEventListener('input', (event) => {
-  const input = event.currentTarget as HTMLInputElement
-
-  text.innerText = input.value
-})
+appendItem([1, 2, 3], 4)
