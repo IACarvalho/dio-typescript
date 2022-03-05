@@ -1,5 +1,22 @@
-function soma (a: number, b: number): number {
-  return a + b;
+interface IAnimal {
+  name: string;
+  type: 'land' | 'aquatic';
+  toGrowl(soundVolume: number): void;
 }
 
-console.log(soma(6, 5))
+interface IFeline extends IAnimal {
+  nightVision: boolean;
+}
+
+const animal: IAnimal = {
+  name: 'Elefante',
+  type: 'land',
+  toGrowl: (soundVolume) => { console.log(`O elefante barriu à ${soundVolume}Db`) }
+}
+
+const felino: IFeline = {
+  name: 'Leão',
+  type: 'land',
+  toGrowl: (soundVolume) => {console.log(`O leão rugiu à ${soundVolume}Db`)},
+  nightVision: true
+}
