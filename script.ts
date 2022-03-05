@@ -1,7 +1,16 @@
-// generic types
-
-function appendItem<T>(array: any[], value: T): any[] {
-  return array.map(() => value)
+interface IUser {
+  id: string;
+  email: string;
 }
 
-appendItem([1, 2, 3], 4)
+interface IAdmin extends IUser {
+  position: 'manager' | 'coordinator' |'supervisor' 
+}
+
+function login (user: IUser | IAdmin) {
+  if ('position' in user) {
+    // redirect to administrator area
+  }
+
+  // redirect to user area 
+}
