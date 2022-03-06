@@ -1,13 +1,25 @@
-interface IUser {
-  id: string;
-  email: string;
-  position?: 'normal user' | 'manager' | 'coordinator' |'supervisor' 
+interface IDog {
+  name: string;
+  age: number;
+  favoritePark?: string;
 }
 
-function login (user: IUser ) {
-  if (user.position) [
-    // redirect to employees area (user.position)
-  ]
-
-  // redirect to guest area
+type IDogReadOnly = {
+  readonly [k in keyof IDog]: IDog[k]
 }
+
+class MyDog implements IDogReadOnly {
+  name
+  age
+
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+}
+
+const myDog = new MyDog('Odie', 4)
+
+myDog.age = 5
+
+console.log(myDog);
